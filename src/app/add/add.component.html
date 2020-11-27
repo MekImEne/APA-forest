@@ -1,0 +1,106 @@
+<!--<div class="container">
+<div class="row">
+<div class="col-md-12">
+<form [formGroup]="reactiveForm">
+	<div class="form-group">
+		<label for="Nomscientifique">Nom scientifique:</label>
+		<input type="text" class="form-conrol" id="Nomscientifique" name="Nomscientifique" formControlName="Nomscienfitique">
+		<div *ngIf="reactiveForm.controls.Nomscientifique.errors && (reactiveForm.controls.Nomscientifique.touched || reactiveForm.controls.Nomscientifique.dirty)"; >			
+			<div *ngIf="reactiveForm.hasError('required','Nomscientifique')">
+				Le Nom scientifique de la ressource est obligatoire
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="Nomcommun">Nom commun:  </label>
+		<input type="text" class="form-conrol" id="Nomcommun" name="Nomcommun" formControlName="Nomcommun">
+		<div *ngIf="reactiveForm.controls.Nomcommun.errors && (reactiveForm.controls.Nomcommun.touched || reactiveForm.controls.Nomcommun.dirty)";>
+			<div *ngIf="reactiveForm.hasError('required','Nomcommun')">
+				Le nom commun de la ressource est obligatoire
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="Categorie">Categorie:</label>
+		<input type="text" class="form-conrol" id="Categorie" name="Categorie" formControlName="Categorie">
+	</div>
+	<div class="form-group">
+		<label for="Description">Description:</label>
+		<input type="text" class="form-conrol" id="Description" name="Description" formControlName="Description">
+	</div>
+	<button class="btn btn-success">Valider</button>
+</form>
+
+</div>
+
+</div>
+
+</div>   -->
+<div class="container">  
+  <form id="contact" [formGroup]="reactiveForm" action="" method="post">
+    <h3>Ajouter une ressource g&eacute;n&eacute;tique</h3>
+    <h4>Introduisez les informations</h4>
+    <fieldset class="form-group">
+	  <input placeholder="Nom scientifique" type="text" tabindex="1" class="form-conrol" id="nom_scientifique" name="nom_scientifique" formControlName="nom_scientifique" required autofocus>
+	  	<div *ngIf="reactiveForm.controls.nom_scientifique.errors && (reactiveForm.controls.nom_scientifique.touched || reactiveForm.controls.nom_scientifique.dirty)"  >			
+			<div *ngIf="reactiveForm.hasError('required','nom_scientifique')">
+				Le nom scientifique de la ressource est obligatoire
+			</div>
+			<div *ngIf="reactiveForm.hasError('minlength','nom_scientifique')">
+				Minimum 3 caracteres
+			</div>
+		</div>
+    </fieldset>
+    <fieldset class="form-group">
+	  <input placeholder="Nom commun" type="email" tabindex="2" class="form-conrol" id="nom_commun" name="nom_commun" formControlName="nom_commun" required autofocus>
+	  <div *ngIf="reactiveForm.controls.nom_commun.errors && (reactiveForm.controls.nom_commun.touched || reactiveForm.controls.nom_commun.dirty)"  >			
+			<div *ngIf="reactiveForm.hasError('required','nom_commun')">
+				Le Nom commun de la ressource est obligatoire
+			</div>
+			<div *ngIf="reactiveForm.hasError('minlength','nom_commun')">
+				Minimum 3 caracteres
+			</div>
+		</div>
+    </fieldset>
+    <fieldset class="form-group">
+		<!-- <input placeholder="categorie" type="tel" tabindex="3" class="form-conrol" id="category" name="category" formControlName="category" required autofocus> -->
+		<select  placeholder="Categorie" name="categorie" tabindex="3" class="form-conrol" id="category"  formControlName="category" required autofocus>
+			<option value="Arbre forestier">Arbre forestier</option>
+					<option value="Plante aromatique ou medicinale">Plante aromatique ou medicinale</option>
+		</select>
+	  <div *ngIf="reactiveForm.controls.category.errors && (reactiveForm.controls.category.touched || reactiveForm.controls.category.dirty)"  >			
+			<div *ngIf="reactiveForm.hasError('required','category')">
+				La categorie de la ressource est obligatoire
+			</div>
+			<div *ngIf="reactiveForm.hasError('minlength','category')">
+				Minimum 3 caracteres
+			</div>
+		</div>
+    </fieldset>
+    <fieldset class="form-group">
+	  <textarea placeholder="Description" tabindex="5" class="form-conrol" id="description" name="description" formControlName="description" required></textarea>
+	  <div *ngIf="reactiveForm.controls.description.errors && (reactiveForm.controls.description.touched || reactiveForm.controls.description.dirty)"  >			
+			<div *ngIf="reactiveForm.hasError('required','description')">
+				La description de la ressource est obligatoire
+			</div>
+			<div *ngIf="reactiveForm.hasError('minlength','description')">
+				Minimum 10 caracteres
+			</div>
+		</div>
+	</fieldset>
+	<fieldset class="form-conrol">
+		<label for="file">Telecharger photo:</label>
+		<input type="file" class="form-conrol" accept="image/*"  (change)="onSelectFile($event)"   style="height :100%">
+	</fieldset>
+    
+	<fieldset class="form-conrol">
+		<label for="file">Telecharger cartographie:</label>
+		<input type="file"  class="form-conrol" accept="image/*"  (change)="onSelectFile2($event)"   style="height :100%">
+	</fieldset>
+    <fieldset>
+	  <!--<button name="Valider" type="submit" id="contact-submit"  [disabled]="!reactiveForm.valid"  data-submit="...Sending">Disabled Valider</button> -->
+	  <button name="Valider" type="submit" id="contact-submit"   (click)="saveForm(reactiveForm)">Valider</button>
+    </fieldset>
+  </form>
+</div>
+    

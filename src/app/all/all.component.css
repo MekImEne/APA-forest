@@ -1,0 +1,17 @@
+#titre {
+		/*padding: 50px 320px;*/
+		position:relative;
+		text-align:center;
+		top: 30px;
+		
+
+	}
+.btn{
+	position: relative;
+	top:  50px;
+	left: 550px;
+}
+.relative2 {
+  position: relative;
+  top:  100px;
+}
